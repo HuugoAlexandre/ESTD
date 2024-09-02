@@ -1,0 +1,1 @@
+![Questões](/Exercícios/20-08-2024/Revisão/EstruturaSequencial/sequencial.PNG)
