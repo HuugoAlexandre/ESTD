@@ -1,0 +1,40 @@
+﻿Integrante: Hugo Alexandre dos Santos
+
+
+Lista com todo o conteúdo consultado para a realização do projeto: 
+        https://www.geeksforgeeks.org/queue-in-python/
+        https://panda.ime.usp.br/panda/static/pythonds_pt/02-AnaliseDeAlgoritmos/Dicionarios.html
+        https://classroom.google.com/u/0/c/NzA0OTIyMzMyMzI1/m/NzA0OTIyMzc1ODUw/details (pdf sobre fila disponibilizado pelo professor)
+        https://wiki.python.org/moin/TimeComplexity
+        https://stackoverflow.com/questions/3949310/how-is-set-implemented
+        https://python.plainenglish.io/how-to-implement-set-with-python-172e73cb2487
+        https://www.designgurus.io/answers/detail/how-is-set-implemented-in-python
+
+
+Comentário sobre conclusão do miniprojeto: Sim, consegui realizar tudo o que foi proposto.
+
+
+Comentários gerais:
+        - Um dos problemas que tive foi tentar entender como eu poderia manter circularidade junto com uma fila dinâmica (ou seja, 'sem capacidade', já que python expandiria automaticamente para mim). Além disso, tive um contratempo tentando encontrar uma maneira de reorganizar os itens dentro da fila logo após remover algum item. Outra questão foi como transformar o método de adição de elemento em notação BigO O(1). Nesse caso, decidi utilizar dicionário, uma vez que o acesso aos valores são diretos. Ambos os problemas foram resolvidos. Todos os testes passaram.
+
+
+Discussão sobre implementação: 
+
+
+        - Método add(element): Já que eu utilizei dicionário como meio para guardar valores que foram adicionados na fila, sempre que um item é adicionado, antes é feita a verificação se tal item já está na fila. Se estiver, ignoro e não o adiciono novamente. Se não estiver, adiciono o item tanto na fila como também no dict. O uso de dicionário como auxiliar pode ser explicado pelo fato do acesso aos valores dele serem diretos, ou seja, em termos de BigO temos desempenho O(1) na operação.
+
+
+        - Método remove(element): Possivelmente o método mais complexo de implementar. Como é preciso encontrar a posição do elemento que quero eliminar e reorganizar a fila depois da eliminação, não consegui encontrar uma forma de fazer isso sem usar algum loop, ou seja, o método tem desempenho O(n) em termos de BigO.
+        - Método contains(element): Mais um motivo do dicionário ter sido utilizado. Novamente, o acesso direto que o dicionário proporciona nos dá a capacidade de verificar se um item está presente com desempenho de operação O(1).
+
+
+        - Método size(): Esse método simplesmente retorna o atributo tamanho, operação constante em termos BigO, ou seja, O(1).
+
+
+        - Método list(): Nesse método decidi utilizar list comprehension com base na posição circular. Se para gerar tal lista eu preciso iterar uma quantidade de vezes igual a self.tamanho, a notação em BigO tem desempenho O(n).
+
+
+        - Método adicional is_empty(): Só para se a lista assumia que estava vazia, desempenho O(1) por só retornar um bool comparando o tamanho da fila com 0.  
+
+
+Link para o código-fonte: https://github.com/HuugoAlexandre/ESTD/tree/main/miniprojeto
