@@ -1,0 +1,42 @@
+Integrante: Hugo Alexandre dos Santos
+
+Dificuldades: 
+	- Na implementação inicial do método proximo_responsavel() eu precisava chamar n vezes o método
+	para se chegar no enésimo aluno, não atendendo aos requisitos do miniprojeto. Cheguei a achar
+	que isso seria o certo, mas não era. Consegui resolver ajustando o ponteiro pro próximo
+	membro (ou voltando pro primeiro membro se estivesse no fim da lista). 
+
+	- Não estava conseguindo remover um membro que não fosse o primeiro ou último da lista.
+
+	- Não lembrava de como fazer um único elemento apontar pra ele mesmo no caso em que uma lista
+	só tenha um membro.
+
+Desempenho dos métodos:
+	- Método adicionar membro(nome, email): Em termos de BigO o método apresenta desempenho O(1),
+	ou seja, tempo constante. Isso se explica porque o método apenas cria um novo membro e define
+	se ele é o primeiro ou não da lista e realizando os ajustes necessários (dos apontadores). 
+	Para fazer isso, não foi necessário nenhum loop.
+
+	- Método remover membros(nome): Como estamos lidando com listas 'linkadas', não é possível
+	acessar um membro apenas indicando seu índice (se souber) como se faz em arrays. Isso se explica
+	porque listas encadeadas estão dispersas na memória, ou seja, não estão armazenadas de forma
+	contínua na memória. Ainda assim é possível criar uma lista, já que cada nó tem um apontador
+	para o próximo elemento (e em muitos casos também para o anterior). Sabendo disso, para 
+	encontrar e remover um certo elemento/membro na nossa lista encadeada circular, precisa-se
+	percorrer toda a lista encadeada, o que significa desempenho variável a depender do tamanho
+	da mesma. Em outras palavras, o método tem desempenho O(n).
+
+	- Método proximo_responsavel(): Foi definido um atributo para guardar essa informação e evitar
+	loops desnecessários, melhorando o desempenho do programa. Em termos de BigO, isso significa
+	que o método tem desempenho O(1), ou seja, constante.
+
+	- Método mostrar lista(): Por questões de facilidade de visualização da lista, criei um list
+	nativo da linguagem e fiz a junção dos membros. Para fazer isso, é preciso percorrer todos os
+	membros, ou seja, percorrer a lista, o que significa ter um desempenho O(n).
+
+Materiais consultados: 
+https://estevestoni.medium.com/iniciando-com-a-nota%C3%A7%C3%A3o-big-o-be996fa3b47b
+https://pt.stackoverflow.com/questions/164085/o-que-%C3%A9-uma-lista-encadeada
+https://classroom.google.com/u/0/c/NzA0OTIyMzMyMzI1/m/NzA0OTIyMzc1ODYz/details (pdf disponibilizado pelo professor)
+https://medium.com/@emersoneduardo.airesnunes/listas-encadeadas-utilizando-python-7526f982b4ae
+https://awari.com.br/lista-encadeada-em-python-aprenda-a-estrutura-de-dados-essencial-para-programacao/
