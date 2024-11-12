@@ -15,8 +15,11 @@ print(H._slots)
 print(H._valores)
 #['bird', 'goat', 'pig', 'chicken', 'dog', 'lion','tiger', None, None, 'cow', 'cat']
 print(H[17]) #'tiger'
+print(H.__len__())
 H[20]='duck'
+print(H.__len__())
 H[66]='fly'
+print(H.__len__())
 print(H[20]) #'duck'
 print(H._valores) #['bird', 'goat', 'pig', 'duck', 'dog', 'lion', 'tiger', 'fly', None, 'cow', 'cat']
 print(H[99])#None

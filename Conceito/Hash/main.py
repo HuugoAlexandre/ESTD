@@ -3,6 +3,7 @@ class HashTable:
         self._tamanho = 11
         self._slots = [None] * self._tamanho
         self._valores = [None] * self._tamanho
+        self._tamanho = 0
 
     def hashfunction(self, chave, tamanho):
         return chave % tamanho
@@ -15,6 +16,7 @@ class HashTable:
         if self._slots[valor_hash] is None:
             self._slots[valor_hash] = chave
             self._valores[valor_hash] = valor
+            self._tamanho += 1
         else:
             if self._slots[valor_hash] == chave:
                 self._valores[valor_hash] = valor
@@ -26,6 +28,7 @@ class HashTable:
                 if self._slots[proximo_slot] is None:
                     self._slots[proximo_slot] = chave
                     self._valores[proximo_slot] = valor
+                    self._tamanho += 1
                 else:
                     self._valores[proximo_slot] = valor
 
