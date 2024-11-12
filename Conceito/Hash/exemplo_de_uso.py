@@ -23,3 +23,4 @@ print(H.__len__())
 print(H[20]) #'duck'
 print(H._valores) #['bird', 'goat', 'pig', 'duck', 'dog', 'lion', 'tiger', 'fly', None, 'cow', 'cat']
 print(H[99])#None
+print(H.__contains__(77))

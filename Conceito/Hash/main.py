@@ -54,5 +54,16 @@ class HashTable:
     def __len__(self):
         return self._tamanho
 
+    def __contains__(self, chave):
+        slot_inicial = self.hashfunction(chave, len(self._slots))
+        pos = slot_inicial
+        while self._slots[pos] is not None:
+            if self._slots[pos] == chave:
+                return True
+            pos = self.rehash(pos, len(self._slots))
+            if pos == slot_inicial:
+                break
+        return False
+
     def __setitem__(self, chave, valor):
         self.put(chave, valor)
