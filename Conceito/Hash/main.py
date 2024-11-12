@@ -4,6 +4,7 @@ class HashTable:
         self._slots = [None] * self._tamanho
         self._valores = [None] * self._tamanho
         self._quantidade_itens = 0
+        self.fator_de_carga = 0.7
 
     def hashfunction(self, chave, tamanho):
         return chave % tamanho
@@ -31,6 +32,27 @@ class HashTable:
                     self._quantidade_itens += 1
                 else:
                     self._valores[proximo_slot] = valor
+
+        if (self._quantidade_itens / self._tamanho) >= self.fator_de_carga:
+            novo_tamanho = self._tamanho * 2
+            novo_slot = [None] * novo_tamanho
+            novo_valores = [None] * novo_tamanho
+
+            for i in range(self._tamanho):
+                if self._slots[i] is not None:
+                    chave = self._slots[i]
+                    valor = self._valores[i]
+
+                    indice = self.hashfunction(chave, novo_tamanho)
+                    while novo_slot[indice] is not None:
+                        indice = self.rehash(indice, novo_tamanho)
+
+                    novo_slot[indice] = chave
+                    novo_valores[indice] = valor
+            
+            self._slots = novo_slot
+            self._valores = novo_valores
+            self._tamanho = novo_tamanho
 
     def get(self, chave):
         slot_inicial = self.hashfunction(chave, len(self._slots))

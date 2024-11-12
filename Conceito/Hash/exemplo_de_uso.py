@@ -11,16 +11,14 @@ H[44]="goat"
 H[55]="pig"
 H[20]="chicken"
 print(H._slots)
-#[77, 44, 55, 20, 26, 93, 17, None, None, 31, 54]
 print(H._valores)
-#['bird', 'goat', 'pig', 'chicken', 'dog', 'lion','tiger', None, None, 'cow', 'cat']
-print(H[17]) #'tiger'
+print(H[17])
 print(H.__len__())
 H[20]='duck'
 print(H.__len__())
 H[66]='fly'
 print(H.__len__())
-print(H[20]) #'duck'
-print(H._valores) #['bird', 'goat', 'pig', 'duck', 'dog', 'lion', 'tiger', 'fly', None, 'cow', 'cat']
-print(H[99])#None
+print(H[20])
+print(H._valores)
+print(H[99])
 print(H.__contains__(77))
