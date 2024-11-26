@@ -29,6 +29,3 @@ def merge_sort(uma_lista):
             k=k+1
     print("Merging ",uma_lista)
     return uma_lista
-
-lista = [38, 27, 43, 3]
-print(merge_sort(lista))
