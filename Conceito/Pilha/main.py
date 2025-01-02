@@ -48,3 +48,17 @@ class PilhaArray:
         while not p.is_empty():
             output.write(p.pop() + '\n') # re-insert newline characters
         output.close()
+
+    def is_matched(expr):
+        abre = '({[' # delimitadores - abertura
+        fecha = ')}]' # delimitadoers - fechamento
+        pilha = PilhaArray()
+        for d in expr:
+            if d in abre:
+                pilha.push(d) # push o delimitador de abertura
+            elif d in fecha:
+                if pilha.is_empty():
+                    return False # não bate
+                if fecha.index(d) != abre.index(pilha.pop()):
+                    return False # não bate
+        return pilha.is_empty() # tem mais delimitadores na pilha?
